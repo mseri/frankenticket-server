@@ -1,6 +1,7 @@
 'use strict';
 var getUsers = require('./routes/getUsers.js');
 var postGuest = require('./routes/postGuest.js');
+var postUser = require('./routes/postUser.js');
 
 module.exports = [{
   method: 'GET',
@@ -12,6 +13,10 @@ module.exports = [{
   method: 'GET',
   path: '/users',
   handler: getUsers
+}, {
+  method: 'POST',
+  path: '/users',
+  handler: postUser
 }, {
   method: 'POST',
   path: '/guest',
