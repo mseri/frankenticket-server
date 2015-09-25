@@ -21,4 +21,8 @@ module.exports = [{
   method: 'POST',
   path: '/guest',
   handler: postGuest
+}, {
+  method: 'POST',
+  path: '/group',
+  handler: postGuest
 }];
