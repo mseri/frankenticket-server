@@ -4,6 +4,8 @@ var getUsers = require('./routes/getUsers.js');
 var postGuest = require('./routes/postGuest.js');
 var postUser = require('./routes/postUser.js');
 var postGroup = require('./routes/postGroup.js');
+var postRequest = require('./routes/postRequest.js');
+var getTickets = require('./routes/getTickets.js');
 
 module.exports = [{
   method: 'GET',
@@ -27,4 +29,12 @@ module.exports = [{
   method: 'POST',
   path: '/group',
   handler: postGroup
+}, {
+  method: 'POST',
+  path: '/tickets-availability',
+  handler: getTickets
+}, {
+  method: 'POST',
+  path: '/requests',
+  handler: postRequest
 }];
