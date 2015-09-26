@@ -3,6 +3,9 @@
 var Hapi = require('hapi');
 var routes = require('./routes.js');
 var db = require('./db.js').sequelize;
+var BTAPI = require('./lib/bthack.js');
+var WebSocket = require('ws');
+var ws;
 
 var server = new Hapi.Server();
 server.connection({
@@ -17,4 +20,18 @@ db.sync().then(function() {
   server.start(function() {
     console.log('Server running at:', server.info.uri);
   });
+
+  BTAPI.auth()
+    .then(function() {
+      ws = new WebSocket(BTAPI.state.socketServer + BTAPI.state.sessionKey);
+      ws.on('message', function(message) {
+        console.log(JSON.stringify(JSON.parse(message.data), null, "\t") + "\n\n");
+      });
+      ws.on('open', function() {
+        console.log('websocket connected');
+      });
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 });
