@@ -35,10 +35,6 @@ db.sync().then(function() {
       ws.on('open', function() {
         console.log('websocket connected');
       });
-
-      server.start(function() {
-        console.log('Server running at:', server.info.uri);
-      });
     })
     .catch(function(err) {
       console.log('Error 0', err);
