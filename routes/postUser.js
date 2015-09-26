@@ -1,4 +1,5 @@
 'use strict';
+
 var db = require('../db.js');
 
 module.exports = function(request, reply) {

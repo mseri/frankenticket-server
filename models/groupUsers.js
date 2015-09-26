@@ -1,4 +1,5 @@
 'use strict';
+
 var Sequelize = require('sequelize');
 
 module.exports = {
@@ -9,6 +10,10 @@ module.exports = {
   },
   groupId: {
     type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  index: {
+    type: Sequelize.FLOAT,
     allowNull: false
   },
   phone: {

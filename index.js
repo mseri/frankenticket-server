@@ -1,4 +1,5 @@
 'use strict';
+
 var Hapi = require('hapi');
 var routes = require('./routes.js');
 var db = require('./db.js').sequelize;
