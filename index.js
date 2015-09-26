@@ -26,17 +26,5 @@ db.sync().then(function() {
     console.log('Server running at:', server.info.uri);
   });
 
-  BTAPI.auth()
-    .then(wsConnect)
-    .then(function() {
-      ws.on('message', function(message) {
-        console.log(JSON.stringify(JSON.parse(message.data), null, "\t") + "\n\n");
-      });
-      ws.on('open', function() {
-        console.log('websocket connected');
-      });
-    })
-    .catch(function(err) {
-      console.log('Error 0', err);
-    });
+  BTAPI.init();
 });

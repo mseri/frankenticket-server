@@ -1,5 +1,5 @@
 {
-  "name": "frankenstein-server",
+  "name": "frankenticket-server",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -22,6 +22,7 @@
     "braintree": "^1.29.0",
     "cheerio": "^0.19.0",
     "hapi": "^10.1.0",
+    "node-uuid": "^1.4.3",
     "pg": "^4.4.2",
     "pg-hstore": "^2.3.2",
     "popsicle": "^1.1.1",
