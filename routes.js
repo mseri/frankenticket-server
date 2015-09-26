@@ -1,12 +1,13 @@
 'use strict';
 
-var getUsers = require('./routes/getUsers.js');
-var postGuest = require('./routes/postGuest.js');
-var postUser = require('./routes/postUser.js');
-var postGroup = require('./routes/postGroup.js');
-var postRequest = require('./routes/postRequest.js');
-var getTickets = require('./routes/getTickets.js');
-var clientToken = require('./routes/clientToken.js');
+var getUsers = require('./routes/getUsers');
+var postGuest = require('./routes/postGuest');
+var postUser = require('./routes/postUser');
+var postGroup = require('./routes/postGroup');
+var postRequest = require('./routes/postRequest');
+var getTickets = require('./routes/getTickets');
+var clientToken = require('./routes/clientToken');
+var billettoNotification = require('./routes/billettoNotification');
 
 module.exports = [{
   method: 'GET',
@@ -42,4 +43,8 @@ module.exports = [{
   method: 'GET',
   path: '/client-token',
   handler: clientToken
+}, {
+  method: 'POST',
+  path: '/billetto-notification',
+  handler: billettoNotification
 }];
