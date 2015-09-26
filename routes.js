@@ -6,6 +6,7 @@ var postUser = require('./routes/postUser.js');
 var postGroup = require('./routes/postGroup.js');
 var postRequest = require('./routes/postRequest.js');
 var getTickets = require('./routes/getTickets.js');
+var clientToken = require('./routes/clientToken.js');
 
 module.exports = [{
   method: 'GET',
@@ -37,4 +38,8 @@ module.exports = [{
   method: 'POST',
   path: '/requests',
   handler: postRequest
+}, {
+  method: 'GET',
+  path: '/client-token',
+  handler: clientToken
 }];

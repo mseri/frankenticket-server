@@ -30,6 +30,6 @@ module.exports = {
     type: Sequelize.STRING
   },
   paymentToken: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   }
 }; 
