@@ -13,9 +13,9 @@ module.exports = function(request, reply) {
     where: {
       url: body.url,
       ticket: body.ticket,
-      quantity: {
-        $lte: body.quantity
-      }
+//       quantity: {
+//         $lte: body.quantity
+//       }
     }
   }).then(function(res) {
     res.forEach(callAndBook(body))
