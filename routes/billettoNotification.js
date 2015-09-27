@@ -4,6 +4,8 @@ var scheduleCall = require('../lib/bthack').scheduleCall;
 var braintree = require('../lib/braintree');
 var db = require('../db.js');
 
+var SENDER = 'tel:+442079595059';
+
 module.exports = function(request, reply) {
   var body = request.payload
 
@@ -34,13 +36,6 @@ function callAndBook(ticket) {
 }
 
 // successful payment must be managed by the callback.
-// I return the array of pressed keys in there in the form
-//[
-//   {
-//     "time": "2015-09-18T11:31Z",
-//     "digits": "1234"
-//   }
-// ]
 function makeCall(number, isPaid, cb) {
   console.log(number, isPaid);
   var message = "Hi, the ticket you wanted to book is now available. ";
