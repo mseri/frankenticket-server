@@ -12,7 +12,7 @@ setTimeout(function() {
     }
     console.log(paid);
   });
-}, 5000);
+}, 2000);
 
 function makeCall(number, isPaid, cb) {
   console.log(number, isPaid);
