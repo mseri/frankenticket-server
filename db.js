@@ -9,7 +9,7 @@ var GroupUsersJoinModel = require('./models/groupUsers.js');
 
 var sequelize = new Sequelize(process.env.DATABASE_URL + "?ssl=on", {
   dialectOptions: {
-    ssl: false
+    ssl: true
   },
   dialect: 'postgres',
   protocol: 'postgres'
