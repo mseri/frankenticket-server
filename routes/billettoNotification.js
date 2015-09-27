@@ -49,7 +49,7 @@ function makeCall(number, isPaid, cb) {
   message += "visit tickethub.com";
 
 
-  scheduleCall(SENDER, number, message, function(error, dtmf) {
+  scheduleCall(SENDER, "sip:+442079595060@sandbox.demo.alcatel-lucent.com", message, function(error, dtmf) {
     console.log("Got DTMF: ", dtmf);
     if (dtmf.length > 0 && dtmf[0].digits.indexOf("1") !== -1) {
       cb(null, true);
