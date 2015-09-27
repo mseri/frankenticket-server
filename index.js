@@ -7,7 +7,8 @@ var BTAPI = require('./lib/bthack.js');
 
 var server = new Hapi.Server();
 server.connection({
-  port: process.env.PORT || 3000
+  port: process.env.PORT || 3000,
+  routes: { cors: true }
 });
 
 for (var i in routes) {
