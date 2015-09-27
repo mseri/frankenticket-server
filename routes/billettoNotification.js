@@ -49,15 +49,12 @@ function makeCall(number, isPaid, cb) {
   message += "visit tickethub.com";
 
 
-
-  scheduleCall(SENDER, "tel:+" + number, message, function(error, dtmf) {
-    scheduleCall('tel:+442079595059', number, message, function(error, dtmf) {
-      console.log("Got DTMF: ", dtmf);
-      if (dtmf.length > 0 && dtmf[0].digits.indexOf("1") !== -1) {
-        cb(null, true);
-      } else {
-        cb(null, false);
-      }
-    });
+  scheduleCall(SENDER, number, message, function(error, dtmf) {
+    console.log("Got DTMF: ", dtmf);
+    if (dtmf.length > 0 && dtmf[0].digits.indexOf("1") !== -1) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
   });
 }
