@@ -27,12 +27,8 @@ function makeCall(number, isPaid, cb) {
 
 
   scheduleCall('tel:+442079595059', number, message, function(error, dtmf) {
-    var digits = dtmf.map(function(el) {
-      return el.digits;
-    });
-    // TODO flatten digits
-    console.log("Got digits from dtmf: ", digits);
-    if (digits.length > 0 && digits[0].indexOf("1") !== -1) {
+    console.log("Got DTMF: ", dtmf);
+    if (dtmf.length > 0 && dtmf[0].digits.indexOf("1") !== -1) {
       cb(null, true);
     } else {
       cb(null, false);

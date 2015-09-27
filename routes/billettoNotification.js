@@ -17,9 +17,11 @@ module.exports = function(request, reply) {
         $lte: body.quantity
       }
     }
-  }).then(function(res){
+  }).then(function(res) {
     res.forEach(callAndBook(body))
-    reply({ ok: true })
+    reply({
+      ok: true
+    })
   });
 }
 
@@ -28,7 +30,7 @@ function callAndBook(ticket) {
     var request = event.dataValues
     makeCall(request.number, !!request.paymentToken, function(err, wantsToPay) {
       if (wantsToPay) {
-        console.log("pay", request.paymentToken, ticket.price)
+        console.log("pay", request.paymentToken, ticket.price);
         braintree.createTransaction(request.paymentToken, ticket.price)
       }
     })
@@ -45,17 +47,17 @@ function makeCall(number, isPaid, cb) {
     message += "To buy it, ";
   }
   message += "visit tickethub.com";
-  
+
 
 
   scheduleCall(SENDER, "tel:+" + number, message, function(error, dtmf) {
-    var digits = dtmf.map(function (el) { return el["digits"] });
-    // TODO flatten digits
-    console.log("Got digits from dtmf: ", digits);
-    if (digits.length > 0 && digits[0].indexOf("1") != -1) {
-      cb(null, true);
-    } else {
-      cb(null, false);
-    }
-  })
+    scheduleCall('tel:+442079595059', number, message, function(error, dtmf) {
+      console.log("Got DTMF: ", dtmf);
+      if (dtmf.length > 0 && dtmf[0].digits.indexOf("1") !== -1) {
+        cb(null, true);
+      } else {
+        cb(null, false);
+      }
+    });
+  });
 }
