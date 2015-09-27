@@ -29,6 +29,7 @@ function callAndBook(ticket) {
   return function(event) {
     var request = event.dataValues
     makeCall(request.number, !!request.paymentToken, function(err, wantsToPay) {
+      console.log ("called and he wants to pay", wantsToPay)
       if (wantsToPay) {
         console.log("pay", request.paymentToken, ticket.price);
         braintree.createTransaction(request.paymentToken, ticket.price)
